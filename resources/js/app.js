@@ -22,6 +22,7 @@ window.Vue = require('vue');
 
 Vue.component('task-component', require('./components/TaskComponent.vue').default);
 Vue.component('list-component', require('./components/ListComponent.vue').default);
+Vue.component('index-component', require('./components/IndexComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

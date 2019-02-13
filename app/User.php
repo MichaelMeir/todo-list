@@ -10,6 +10,19 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function role() {
+        return $this->belongsTo('App\RoleModel');
+    }
+
+    public function lists() {
+        return $this->hasMany('App\ListModel');
+    }
+
+    public function tasks() {
+        return $this->hasMany('App\TaskModel');
+    }
+
+
     /**
      * The attributes that are mass assignable.
      *

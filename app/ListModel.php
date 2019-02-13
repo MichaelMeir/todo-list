@@ -13,7 +13,7 @@ class ListModel extends Model
     	return $this->hasMany("App\TaskModel", "list_id");
     }
 
-    public function lists() {
-    	
+    public function user() {
+    	return $this->belongsTo('App\User');
     }
 }

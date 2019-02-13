@@ -11,25 +11,34 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index', [
-    	'list' => App\ListModel::with('tasks')->first(),
-    ]);
+Route::get('/', 'HomeController@index')->middleware('auth');
+
+Route::get('/home', 'HomeController@index')->middleware('auth');
+
+Route::get('/login', 'AuthController@index')->middleware('guest')->name('login');
+Route::post('/login', 'AuthController@login')->middleware('guest')->name('login');
+Route::get('/logout', 'AuthController@logout');
+Route::get('/register', function() {
+	return "tering lijer";
 });
 
 Route::get('/{id}', function($id) {
-	return view('index', [
+	return view('list', [
 		'list' => App\ListModel::where('id', $id)->with('tasks')->first(),
 	]);
-});
+})->middleware('auth');
 
-Route::post('/check/{task}', 'ListController@check');
+Route::post('/check/{task}', 'ListController@check')->middleware('auth');
 
-Route::post('/change/task/{task}', 'ListController@changeTask');
-Route::post('/change/list/{list}', 'ListController@changeList');
+Route::post('/change/task/{task}', 'ListController@changeTask')->middleware('auth');
+Route::post('/change/list/{list}', 'ListController@changeList')->middleware('auth');
 
-Route::post('/new/list/', 'ListController@newList');
-Route::post('/new/task/{list}', 'ListController@newTask');
+Route::post('/change/role/{role}/{user}', 'RoleController@setRole')->middleware('auth');
 
-Route::post('/delete/list/{list}', 'ListController@deleteList');
-Route::post('/delete/task/{task}', 'ListController@deleteTask');
+Route::post('/new/list/', 'ListController@newList')->middleware('auth');
+Route::post('/new/task/{list}', 'ListController@newTask')->middleware('auth');
+
+Route::post('/delete/list/{list}', 'ListController@deleteList')->middleware('auth');
+Route::post('/delete/task/{task}', 'ListController@deleteTask')->middleware('auth');
+
+Auth::routes();
