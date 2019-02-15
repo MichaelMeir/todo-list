@@ -57,7 +57,7 @@
                 <button type="submit" class="border-2 border-black mt-1 rounded-sm p-1">
                     Register
                 </button>
-                <a href="/login" class="no-underline text-black border-2 border-black mt-1 rounded-sm p-1">
+                <a href="/login" class="text-black">
                     Login
                 </a>
             </div>

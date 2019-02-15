@@ -49,7 +49,7 @@ class ListController extends Controller
     		abort(404);
     	}
 
-    	if(auth()->user()->id !== $list->user_id && auth()->user()->role()->id !== 2) {
+    	if(auth()->user()->id !== $list->user_id && auth()->user()->role->id !== 2) {
     		abort(404);
     	}
 

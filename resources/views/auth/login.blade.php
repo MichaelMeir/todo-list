@@ -30,8 +30,8 @@
                 @endif
             </div>
             <div>
-                <input class="" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                <label class="" for="remember">
+                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                <label for="remember">
                     Remember me
                 </label>
             </div>
@@ -39,11 +39,11 @@
                 <button type="submit" class="border-2 border-black mt-1 rounded-sm p-1">
                    Login
                 </button>
-                <a href="/register" class="no-underline text-black border-2 border-black mt-1 rounded-sm p-1">
+                <a href="/register" class="text-black">
                     Register
                 </a>
                 @if (Route::has('password.request'))
-                    <a class="p-1" href="{{ route('password.request') }}">
+                    <a class="text-black p-1" href="{{ route('password.request') }}">
                         Forgot your password?
                     </a>
                 @endif

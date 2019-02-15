@@ -13,11 +13,11 @@ class AuthController extends Controller
 
     public function login(Request $req) {
     	$req->validate([
-    		'name' => 'required',
+    		'email' => 'required',
     		'password' => 'required'
     	]);
 
-    	if($req->ajax() && Auth::attempt($req->only('name', 'password'))) {
+    	if($req->ajax() && Auth::attempt($req->only('email', 'password'))) {
     		return redirect('/');
     	}
     	return redirect('/login');

@@ -19,7 +19,7 @@ Route::get('/login', 'AuthController@index')->middleware('guest')->name('login')
 Route::post('/login', 'AuthController@login')->middleware('guest')->name('login');
 Route::get('/logout', 'AuthController@logout');
 Route::get('/register', function() {
-	return "tering lijer";
+	return view('auth.register');
 });
 
 Route::get('/{id}', function($id) {
